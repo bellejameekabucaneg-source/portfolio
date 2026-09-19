@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)http://127.0.0.1:5500/website/belle.html#home -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belle Jameeka Bucaneg | Portfolio</title>
+    <link href="./Belle Jameeka Bucaneg _ Portfolio_files/css2" rel="stylesheet">
+    <style>
+        /* ========== GLOBAL STYLES & DESIGN SYSTEM ========== */
+        :root {
+            --baby-blue: #c1e0ff;
+            --light-blue: #82c0ff;
+            --medium-blue: #4a90e2;
+            --deep-blue: #2563eb;
+            --lily-blue: #60a5fa;
+            --dark-bg: #0f172a;
+            --darker-bg: #020617;
+            --card-bg: rgba(30, 41, 59, 0.6);
+            --glass-border: rgba(193, 224, 255, 0.2);
+            --text-light: #e0f0ff;
+            --text-muted: #94b8d9;
+            --glow: 0 0 20px rgba(96, 165, 250, 0.4);
+            --glow-strong: 0 0 30px rgba(96, 165, 250, 0.6);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 50%, #1a2744 100%);
+            color: var(--text-light);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ========== BACKGROUND DECORATION ========== */
+        .bg-lilies {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .lily {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, rgba(96, 165, 250, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 12s infinite ease-in-out;
+        }
+
+        .lily:nth-child(1) {
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .lily:nth-child(2) {
+            top: 30%;
+            right: 8%;
+            animation-delay: -3s;
+        }
+
+        .lily:nth-child(3) {
+            top: 60%;
+            left: 10%;
+            animation-delay: -6s;
+        }
+
+        .lily:nth-child(4) {
+            bottom: 15%;
+            right: 5%;
+            animation-delay: -9s;
+        }
+
+        .lily:nth-child(5) {
+            top: 80%;
+            left: 40%;
+            animation-delay: -4s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) scale(1);
+                opacity: 0.3;
+            }
+
+            50% {
+                transform: translateY(-30px) scale(1.1);
+                opacity: 0.5;
+            }
+        }
+
+        /* ========== NAVIGATION ========== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+        }
+
+        .nav-scrolled {
+            padding: 0.7rem 5%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--baby-blue);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--lily-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--baby-blue), var(--lily-blue));
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--baby-blue);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--baby-blue);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* ========== CONTAINER & SECTION BASE ========== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+            position: relative;
+            z-index: 1;
+        }
+
+        section {
+            padding: 100px 0;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--baby-blue);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            margin: 0.8rem auto 0;
+            background: linear-gradient(90deg, var(--medium-blue), var(--lily-blue));
+            border-radius: 2px;
+        }
+
+        /* ========== HERO SECTION ========== */
+        #home {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .hero-text h1 span {
+            color: var(--lily-blue);
+            text-shadow: 0 0 15px rgba(96, 165, 250, 0.5);
+        }
+
+        .typing-text {
+            font-size: 1.3rem;
+            color: var(--light-blue);
+            margin-bottom: 0.5rem;
+            min-height: 2rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--medium-blue), var(--deep-blue));
+            color: white;
+            box-shadow: var(--glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--glow-strong);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--baby-blue);
+            border: 2px solid var(--lily-blue);
+        }
+
+        .btn-outline:hover {
+            background: rgba(96, 165, 250, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 0 15px rgba(96, 165, 250, 0.3);
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-frame {
+            position: relative;
+            width: 340px;
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 3px solid var(--lily-blue);
+            box-shadow: var(--glow);
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+        }
+
+        .profile-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .profile-frame:hover img {
+            transform: scale(1.05);
+        }
+
+        .profile-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--baby-blue);
+            background: linear-gradient(135deg, rgba(96, 165, 250, 0.2), rgba(37, 99, 235, 0.2));
+        }
+
+        .profile-placeholder svg {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1rem;
+            opacity: 0.7;
+        }
+
+        .floating-border {
+            position: absolute;
+            width: 340px;
+            height: 400px;
+            border: 2px dashed var(--lily-blue);
+            border-radius: 20px;
+            top: 15px;
+            left: 15px;
+            z-index: -1;
+            animation: floatBorder 4s infinite ease-in-out;
+        }
+
+        @keyframes floatBorder {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(8px, -8px);
+            }
+        }
+
+        /* ========== GLASS CARD BASE ========== */
+        .glass-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.4s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--lily-blue);
+            box-shadow: var(--glow);
+        }
+
+        /* ========== ABOUT SECTION ========== */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: var(--text-muted);
+        }
+
+        /* ========== SKILLS SECTION ========== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            text-align: center;
+            padding: 2rem 1.5rem;
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-card h3 {
+            color: var(--baby-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        /* ========== PROJECTS & ACHIEVEMENTS ========== */
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: transparent;
+            color: var(--text-muted);
+            border: 1px solid var(--glass-border);
+            padding: 0.6rem 1.5rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--medium-blue);
+            color: white;
+            border-color: var(--medium-blue);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card.hidden {
+            display: none;
+        }
+
+        .project-card h3 {
+            color: var(--baby-blue);
+            margin-bottom: 0.8rem;
+        }
+
+        .project-card p {
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* ========== EXPERIENCE SECTION ========== */
+        .timeline {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--lily-blue), transparent);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 70px;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 20px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: var(--lily-blue);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--lily-blue);
+        }
+
+        .timeline-item h3 {
+            color: var(--baby-blue);
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-item p {
+            color: var(--text-muted);
+        }
+
+        /* ========== GOALS & HOBBIES ========== */
+        .goals-list,
+        .hobbies-list {
+            list-style: none;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .goals-list li,
+        .hobbies-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--glass-border);
+            font-size: 1.1rem;
+        }
+
+        .goals-list li::before,
+        .hobbies-list li::before {
+            content: '✿';
+            color: var(--lily-blue);
+            margin-right: 1rem;
+        }
+
+        /* ========== CONTACT SECTION ========== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .contact-card {
+            text-align: center;
+        }
+
+        .contact-card h3 {
+            color: var(--baby-blue);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .contact-card p,
+        .contact-card a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-card a:hover {
+            color: var(--lily-blue);
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--glass-border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* ========== RESPONSIVE DESIGN ========== */
+        @media (max-width: 900px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-image-wrapper {
+                order: -1;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                background: rgba(15, 23, 42, 0.95);
+                padding: 1.5rem 5%;
+                gap: 1rem;
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .profile-frame,
+            .floating-border {
+                width: 280px;
+                height: 340px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .btn {
+                padding: 0.8rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Background Lily Decorations -->
+    <div class="bg-lilies">
+        <div class="lily"></div>
+        <div class="lily"></div>
+        <div class="lily"></div>
+        <div class="lily"></div>
+        <div class="lily"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="">
+        <a href="http://127.0.0.1:5500/website/belle.html#home" class="logo">Belle<span>Portfolio</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="http://127.0.0.1:5500/website/belle.html#home" class="active">Home</a></li>
+            <li><a href="http://127.0.0.1:5500/website/belle.html#about" class="">About</a></li>
+            <li><a href="http://127.0.0.1:5500/website/belle.html#skills" class="">Skills</a></li>
+            <li><a href="http://127.0.0.1:5500/website/belle.html#projects">Projects</a></li>
+            <li><a href="http://127.0.0.1:5500/website/belle.html#achievements">Achievements</a></li>
+            <li><a href="http://127.0.0.1:5500/website/belle.html#experience">Experience</a></li>
+            <li><a href="http://127.0.0.1:5500/website/belle.html#hobbies">Hobbies</a></li>
+            <li><a href="http://127.0.0.1:5500/website/belle.html#goals">Goals</a></li>
+            <li><a href="http://127.0.0.1:5500/website/belle.html#contact">Contact</a></li>
+        </ul>
+        <div class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="visible">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <h1>Hi, I'm <span>Belle Jameeka Bucaneg</span></h1>
+                    <p class="typing-text" id="typingText">Grade 10 — Music Major</p>
+                    <p class="hero-subtitle">
+                        Grade 10 • Special Program in the Arts — Music Major<br>
+                        Gonzaga National High School<br>
+                        Smart, Gonzaga, Cagayan • ATP Trainee &amp; Student
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="https://canva.link/vukbq6chymx3k5r" class="btn btn-primary">Resume</a>
+                        <a href="http://127.0.0.1:5500/website/belle.html#about" class="btn btn-outline">Explore</a>
+                    </div>
+                </div>
+                <div class="hero-image-wrapper">
+                    <div class="floating-border"></div>
+                    <div class="profile-frame">
+                        <img src="belle.jpg" alt="Belle Jameeka Bucaneg">
+                        <div class="profile-placeholder">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
+                            </svg>
+                            <p><strong>Add your photo here</strong></p>
+                            <small>Replace with your image file</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="visible">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="glass-card about-content">
+                <p>
+                    Hi! I am <strong>Belle Jameeka Bucaneg</strong>, a Grade 10 student at Gonzaga National High School
+                    and an ATP trainee.
+                    I am a hardworking, friendly, and determined person who enjoys learning new things and improving my
+                    skills.
+                    <br><br>
+                    My hobbies include singing, playing bandurria, and playing badminton. As an ATP trainee, I gained
+                    experience in
+                    <strong>Microsoft Word, PowerPoint, Microsoft Excel, and HTML</strong>. These skills helped me
+                    become more confident
+                    in using computers and technology.
+                    <br><br>
+                    My goal is to finish my studies and become a successful agriculturist someday. I hope to use my
+                    knowledge and
+                    skills to help others and contribute to the community.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="visible">
+        <div class="container">
+            <h2 class="section-title">My Skills</h2>
+            <div class="skills-grid">
+                <div class="glass-card skill-card">
+                    <div class="skill-icon">🎵</div>
+                    <h3>Playing Bandurria</h3>
+                    <p>Skilled in playing this traditional Filipino string instrument</p>
+                </div>
+                <div class="glass-card skill-card">
+                    <div class="skill-icon">🏸</div>
+                    <h3>Playing Badminton</h3>
+                    <p>Active player with experience in school competitions</p>
+                </div>
+                <div class="glass-card skill-card">
+                    <div class="skill-icon">📝</div>
+                    <h3>Microsoft Word</h3>
+                    <p>Document creation, formatting, and editing</p>
+                </div>
+                <div class="glass-card skill-card">
+                    <div class="skill-icon">📊</div>
+                    <h3>Microsoft Excel</h3>
+                    <p>Basic spreadsheets, data entry, and organization</p>
+                </div>
+                <div class="glass-card skill-card">
+                    <div class="skill-icon">📽️</div>
+                    <h3>PowerPoint</h3>
+                    <p>Creating clear and creative presentations</p>
+                </div>
+                <div class="glass-card skill-card">
+                    <div class="skill-icon">💻</div>
+                    <h3>HTML &amp; CSS</h3>
+                    <p>Building and designing simple web pages</p>
+                </div>
+                <div class="glass-card skill-card">
+                    <div class="skill-icon">🤝</div>
+                    <h3>Teamwork</h3>
+                    <p>Collaborating effectively in music groups and training</p>
+                </div>
+                <div class="glass-card skill-card">
+                    <div class="skill-icon">💬</div>
+                    <h3>Communication</h3>
+                    <p>Expressing ideas clearly and confidently</p>
+                </div>
+                <div class="glass-card skill-card">
+                    <div class="skill-icon">✨</div>
+                    <h3>Creativity</h3>
+                    <p>Bringing original ideas to music, arts, and projects</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="music">Music &amp; Arts</button>
+                <button class="filter-btn" data-filter="tech">Technology</button>
+            </div>
+            <div class="projects-grid">
+                <div class="glass-card project-card" data-category="music">
+                    <h3>🎶 School Music Performance</h3>
+                    <p>Participated in a school music performance by playing instruments with my group — practiced
+                        together, coordinated timing, and delivered a successful presentation to the school community.
+                    </p>
+                </div>
+                <div class="glass-card project-card" data-category="tech">
+                    <h3>💻 ATP Skills Training</h3>
+                    <p>Learned and practiced Microsoft Word, PowerPoint, Microsoft Excel, and HTML as an ATP trainee —
+                        created documents, presentations, spreadsheets, and simple web pages through hands-on exercises
+                        and guided lessons.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements">
+        <div class="container">
+            <h2 class="section-title">Achievements</h2>
+            <div class="projects-grid">
+                <div class="glass-card project-card">
+                    <h3>🏸 CPAA MEET 2025</h3>
+                    <p>Represented as a badminton player during the CPAA MEET 2025 — competed with dedication and
+                        sportsmanship.</p>
+                </div>
+                <div class="glass-card project-card">
+                    <h3>🎵 GNHS Founding Anniversary Performance</h3>
+                    <p>Performed with my group during the Gonzaga National High School founding anniversary — showcased
+                        musical talent and teamwork on stage.</p>
+                </div>
+                <div class="glass-card project-card">
+                    <h3>💻 IT &amp; Computer Skills</h3>
+                    <p>Successfully learned basic skills in Microsoft Word, PowerPoint, Excel, and HTML — gained
+                        practical computer literacy through ATP training.</p>
+                </div>
+                <div class="glass-card project-card">
+                    <h3>🌟 Active School Participant</h3>
+                    <p>Consistently participated in school activities and music performances — recognized for commitment
+                        and active involvement in school life.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">My Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item glass-card">
+                    <div class="timeline-dot"></div>
+                    <h3>ATP Trainee</h3>
+                    <p><em>Lyceum of Aparri</em> — Gained hands-on experience in Microsoft Office tools and web
+                        development basics.</p>
+                </div>
+                <div class="timeline-item glass-card">
+                    <div class="timeline-dot"></div>
+                    <h3>IT Literacy Training</h3>
+                    <p>Participated in IT literacy training — developed foundational computer skills essential for
+                        modern learning.</p>
+                </div>
+                <div class="timeline-item glass-card">
+                    <div class="timeline-dot"></div>
+                    <h3>Badminton Competitions</h3>
+                    <p>Played badminton during school competitions — built discipline, physical fitness, and competitive
+                        spirit.</p>
+                </div>
+                <div class="timeline-item glass-card">
+                    <div class="timeline-dot"></div>
+                    <h3>Music Performances</h3>
+                    <p>Performed with my group during various school events — developed confidence, stage presence, and
+                        musical collaboration.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hobbies Section -->
+    <section id="hobbies">
+        <div class="container">
+            <h2 class="section-title">My Hobbies</h2>
+            <div class="glass-card" style="max-width: 600px; margin: 0 auto;">
+                <ul class="hobbies-list">
+                    <li>🎤 Singing — expressing myself through music</li>
+                    <li>🎵 Playing Bandurria — mastering a traditional instrument</li>
+                    <li>🏸 Playing Badminton — staying active and competitive</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Goals Section -->
+    <section id="goals">
+        <div class="container">
+            <h2 class="section-title">My Goals</h2>
+            <div class="glass-card" style="max-width: 600px; margin: 0 auto; text-align: center;">
+                <ul class="goals-list">
+                    <li>🎓 Finish my studies with dedication and excellence</li>
+                    <li>🌾 Become a successful agriculturist someday</li>
+                    <li>🤝 Use my knowledge and skills to help others</li>
+                    <li>💛 Contribute positively to my community</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-grid">
+                <div class="glass-card contact-card">
+                    <h3>📱 Phone / Number</h3>
+                    <p>09563857186</p>
+                </div>
+                <div class="glass-card contact-card">
+                    <h3>✉️ Email</h3>
+                    <a href="mailto:bellejameekabucaneg@gmail.com">bellejameekabucaneg@gmail.com</a>
+                </div>
+                <div class=" glass-card contact-card">
+                    <h3>📘 Facebook</h3>
+                    <a href="http://127.0.0.1:5500/website/belle.html#" target="_blank">Belle Jameeka</a>
+                </div>
+                <div class="glass-card contact-card">
+                    <h3>📍 Location</h3>
+                    <p>Smart, Gonzaga, Cagayan</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Belle Jameeka Bucaneg | Grade 10 — Special Program in the Arts (Music Major)</p>
+        <p style="margin-top: 0.5rem;">Gonzaga National High School • ATP Trainee</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // ========== TYPING ANIMATION ==========
+        const phrases = [
+            'Grade 10 — Music Major',
+            'ATP Trainee',
+            'Bandurria Player & Singer',
+            'Aspiring Agriculturist'
+        ];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingElement = document.getElementById('typingText');
+
+        function typeEffect() {
+            const currentPhrase = phrases[phraseIndex];
+            if (isDeleting) {
+                typingElement.innerHTML = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingElement.innerHTML = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let speed = isDeleting ? 50 : 100;
+            if (!isDeleting && charIndex === currentPhrase.length) speed = 2000;
+            if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                speed = 500;
+            }
+            setTimeout(typeEffect, speed);
+        }
+        typeEffect();
+
+        // ========== SCROLL ANIMATIONS ==========
+        const sections = document.querySelectorAll('section');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        sections.forEach(sec => observer.observe(sec));
+
+        // ========== NAVIGATION ==========
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('nav-scrolled', window.scrollY > 50);
+            // Update active link
+            let current = '';
+            sections.forEach(sec => {
+                if (window.scrollY >= sec.offsetTop - 150) current = sec.getAttribute('id');
+            });
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
+            });
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+        navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => navLinks.classList.remove('active')));
+
+        // ========== PROJECT FILTERING ==========
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.getAttribute('data-filter');
+                projectCards.forEach(card => {
+                    const cat = card.getAttribute('data-category');
+                    if (filter === 'all' || cat === filter) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+</body></html>
